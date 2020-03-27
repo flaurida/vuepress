@@ -41,10 +41,8 @@ jobs:
           echo '# Hello VuePress' > README.md
 
       - name: Run VuePress
-        run: vuepress dev
+        run: vuepress dev &
         working-directory: ./test_project
-      # - name: Start local server
-      #   run: npm run start & npx wait-on http://localhost:3000
       # - run: npx qawolf test --headless
       #   env:
       #     # configure tests with environment variables
