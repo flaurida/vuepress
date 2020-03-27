@@ -19,7 +19,12 @@
     "alwaysStrict": true,
     "module": "commonjs",
     "outDir": "lib",
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
 }
