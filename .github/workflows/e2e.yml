@@ -65,7 +65,7 @@ jobs:
           QAW_ARTIFACT_PATH: ${{ github.workspace }}/artifacts # save video and logs
         working-directory: ./vuepress
 
-      - name: Upload Artifacts
+      - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@master
         with:
