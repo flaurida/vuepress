@@ -17,9 +17,16 @@ afterAll(async () => {
   await browser.close()
 })
 
-test('initialSetup', async () => {
+test('linkAndSearch', async () => {
   await page.goto('http://localhost:8080/')
+  await page.click('text="Get Started"')
 
-  // test will fail if the header never appears
+  // test will fail if header never appears
+  await page.waitFor('h1#get-started')
+
+  await page.type('[aria-label="Search"]', 'hello')
+  await page.click('ul a[href="/"]')
+
+  // test will fail if header never appears
   await page.waitFor('h1#hello-vuepress')
 })

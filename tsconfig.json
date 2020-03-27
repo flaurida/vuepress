@@ -5,7 +5,7 @@
     "esModuleInterop": true,
     "pretty": true,
     "moduleResolution": "node",
-    "lib": ["dom", "es2015", "es2016.array.include"],
+    "lib": ["es2015", "es2016.array.include"],
     "allowSyntheticDefaultImports": true,
     "stripInternal": true,
     "noImplicitAny": false,

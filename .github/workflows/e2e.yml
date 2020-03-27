@@ -58,9 +58,16 @@ jobs:
           echo '[Get Started](/get_started/)' >> README.md
         working-directory: ./test_project
 
+      - name: Test additional page
+        run: npx qawolf test --headless linkAndSearch
+        env:
+          FFMPEG_PATH: /usr/bin/ffmpeg # for recording video
+          QAW_ARTIFACT_PATH: ${{ github.workspace }}/artifacts # save video and logs
+        working-directory: ./vuepress
+
       - name: Upload Artifacts
         if: always()
         uses: actions/upload-artifact@master
         with:
-          name: qawolf
+          name: e2e
           path: ${{ github.workspace }}/artifacts
