@@ -13,6 +13,8 @@ jobs:
           sudo apt update
           # chromium dependencies
           sudo apt-get install libgbm1
+          # webkit dependencies
+          sudo apt-get install libwoff1 libopus0 libwebp6 libwebpdemux2 libenchant1c2a libgudev-1.0-0 libsecret-1-0 libhyphen0 libgdk-pixbuf2.0-0 libegl1 libgles2 libevent-2.1-6 libnotify4 libvpx5 libxslt1.1
           # ffmpeg
           sudo apt-get install -y ffmpeg
 
@@ -45,7 +47,7 @@ jobs:
         working-directory: ./test_project
 
       - name: Test first page
-        run: npx qawolf test --headless initialSetup
+        run: npx qawolf test --all-browsers --headless initialSetup
         env:
           FFMPEG_PATH: /usr/bin/ffmpeg # for recording video
           QAW_ARTIFACT_PATH: ${{ github.workspace }}/artifacts # save video and logs
@@ -59,7 +61,7 @@ jobs:
         working-directory: ./test_project
 
       - name: Test additional page
-        run: npx qawolf test --headless linkAndSearch
+        run: npx qawolf test --all-browsers --headless linkAndSearch
         env:
           FFMPEG_PATH: /usr/bin/ffmpeg # for recording video
           QAW_ARTIFACT_PATH: ${{ github.workspace }}/artifacts # save video and logs
