@@ -44,10 +44,19 @@ jobs:
         run: vuepress dev &
         working-directory: ./test_project
 
-      - run: npx qawolf test --headless initialSetup
+      - name: Test first page
+        run: npx qawolf test --headless initialSetup
         env:
           FFMPEG_PATH: /usr/bin/ffmpeg # for recording video
           QAW_ARTIFACT_PATH: ${{ github.workspace }}/artifacts # save video and logs
+        working-directory: ./vuepress
+
+      - name: Add another page
+        run: |
+          mkdir get_started
+          echo '# Get Started' > get_started/README.md
+          echo '[Get Started](/get_started/)' >> README.md
+        working-directory: ./test_project
 
       - name: Upload Artifacts
         if: always()
