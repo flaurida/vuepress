@@ -29,6 +29,7 @@ jobs:
         run: |
           yarn
           yarn register-vuepress
+          yarn tsc
         working-directory: ./vuepress
 
       - name: Create test project
